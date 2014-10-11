@@ -1,0 +1,66 @@
+<div ng-if="loading" class="loading-cover">
+  <i class="spinner ion-loading-b"></i>
+</div>
+<div class="row">
+  <div class="jumbotron">
+  <h2>Twitter Tool</h2>
+    <ol>
+      <li>#Search - begin with #</li>
+      <li>Exact phrase - "Jack Hanford"</li>
+      <li>Tweets to specific user - begin with @</li>
+  </div>
+</div>
+<div class="row">
+  <div class="input-group" ng-class="{true: 'has-error', false: ''}[nothing]">
+    <span class="input-group-addon">Search</span>
+    <input class="form-control" ng-model="query" placeholder="">
+  </div>
+  <br />
+  <!-- <div class="btn-group"> -->
+    <button type="button" class="btn btn-primary" ng-click="hashtag(query)">Search by Tweets</button>
+    <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">#Hashtag</a>
+      </li>
+      <li><a href="#">Another action</a>
+      </li>
+      <li><a href="#">Something else here</a>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#">Separated link</a>
+      </li>
+    </ul>
+  </div> -->
+  <button class="btn btn-success" ng-click="search(query)">Search Users</button>
+  <button class="btn btn-danger" ng-click="clear()">Clear</button>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="list-group">
+        <br />
+        <a href="#" class="list-group-item" ng-repeat="tweet in tweets">
+          <img ng-src="{{user.profile_image_url}}" class="img-square">
+          <div style="display:inline-block;">
+            <h4 class="list-group-item-heading">@{{tweet.user.name}}</h4>
+            <p class="list-group-item-text">{{tweet.text}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="list-group">
+        <br />
+        <a href="#" class="list-group-item" ng-repeat="user in users">
+          <img ng-src="{{user.profile_image_url}}" class="img-square">
+          <div style="display:inline-block;">
+            <h4 class="list-group-item-heading">@{{user.screen_name}}</h4>
+            <p class="list-group-item-text">{{user.description}}</p>
+            <p>Followers: {{user.followers_count}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

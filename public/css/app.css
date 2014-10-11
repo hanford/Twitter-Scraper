@@ -28,3 +28,29 @@
   content: "";
   padding: 0;
 }
+
+.btn-group>.btn+.dropdown-toggle {
+  height: 33px;
+}
+
+.loading-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.5);
+  z-index: 9998;
+}
+
+.spinner {
+  position: absolute;
+  margin-top: 15%;
+  left: 48%;
+  color: white;
+  margin: 15% auto 0;
+  font-size: 48px;
+  display: block;
+  text-align: center;
+  z-index: 9999;
+}

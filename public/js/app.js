@@ -13,9 +13,9 @@ angular.module('myApp', [
     .state('view1', {
       url: "/view1",
       controller: 'MyCtrl1',
-      templateUrl: "partials/partial1.html"
+      templateUrl: "partials/main-view.html"
     })
-    
+
     $urlRouterProvider.otherwise("/view1");
     $locationProvider.html5Mode(true);
 

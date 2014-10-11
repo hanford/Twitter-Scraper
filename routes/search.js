@@ -23,7 +23,7 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/users', function(req, res) {
   T.get('users/search', {
-    q: req.param('query') || 'banana'
+    q: req.param('query')
   }, function(err, data, response) {
     if (err) {
       throw err;
