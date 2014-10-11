@@ -1,0 +1,21 @@
+{
+  "name": "AngularExpress",
+  "version": "0.0.1",
+  "homepage": "https://github.com/btford/angular-express-seed",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26",
+    "angular-ui-router": "~0.2.11",
+    "bootstrap": "~3.2.0",
+    "ionicons": "~1.5.2",
+    "moment": "~2.8.3"
+  }
+}
