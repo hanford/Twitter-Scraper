@@ -1,3 +1,1 @@
-**Angular Express Seed**
-<br />
-To use first run <code>bower i</code> and <code>node install</code>
+Small node app to scrape some twitters data and write it to a CSV
