@@ -17,7 +17,7 @@ angular.module('myApp.controllers', ['myApp.services'])
         for (var i = 0; i < $scope.names.length; i++) {
           console.log($scope.names[i])
           apiService.search($scope.names[i]).then(function(response) {
-            console.log(response)
+            $scope.users = response.data.users;
           })
         }
       }, 1000)
