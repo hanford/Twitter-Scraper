@@ -2,24 +2,22 @@
   <i class="spinner ion-loading-b"></i>
 </div>
 <div class="row">
-  <div class="jumbotron">
-    <h2>Twitter Tool</h2>
-    <ol>
-      <li>#Search - begin with #</li>
-      <li>Exact phrase - "Jack Hanford"</li>
-      <li>Tweets to specific user - begin with @</li>
-  </div>
+  <h2>Twitter Tool</h2>
 </div>
 <div class="row">
   <textarea class="form-control" rows="10" ng-model="query" placeholder=""></textarea>
   <br />
-  <button class="btn btn-primary" ng-click="hashtag(query)">Search by Tweets</button>
-  <button class="btn btn-success" ng-click="search(query)">Search Users</button>
-  <button class="btn btn-danger" ng-click="clear()">Clear</button>
   <div class="row">
-    <div class="col-sm-6">
-      <div class="list-group" ng-show="tweets">
-        <br />
+    <div class="col-xs-12">
+      <button class="btn btn-primary" ng-click="hashtag(query)">Search by Tweets</button>
+      <button class="btn btn-success" ng-click="search(query)">Search Users</button>
+      <button class="btn btn-danger" ng-click="clear()">Clear</button>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-sm-4 overflow-control" ng-show="tweets">
+      <div class="list-group">
         <a href="#" class="list-group-item" ng-repeat="tweet in tweets">
           <div style="display:tabel-cell;">
             <h4 class="list-group-item-heading">@{{tweet.user.name}}</h4>
@@ -28,23 +26,20 @@
         </a>
       </div>
     </div>
-    <div class="list-group" ng-show="names">
-      <br />
-      <div ng-repeat="name in names">
-        {{name}}
+    <div ng-repeat="list in lists">
+      <div class="col-sm-4 overflow-control">
+        <div class="list-group">
+          <a ng-click="follow(user)" class="list-group-item" ng-repeat="user in list">
+            <img ng-src="{{user.profile_image_url}}" class="img-squar imgli">
+            <div class="has-thumbnail">
+              <h4 class="list-group-item-heading">@{{user.screen_name}}</h4>
+              <p class="list-group-item-text">{{user.description}}</p>
+              <p>
+                Followers: {{user.followers_count}}
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="list-group" ng-show="users">
-    <br />
-    <a href="#" class="list-group-item" ng-repeat="user in users">
-      <img ng-src="{{user.profile_image_url}}" class="img-squar imgli">
-      <div class="has-thumbnail">
-        <h4 class="list-group-item-heading">@{{user.screen_name}}</h4>
-        <p class="list-group-item-text">{{user.description}}</p>
-        <p>Followers: {{user.followers_count}}</p>
-      </div>
-    </a>
-  </div>
-</div>
-</div>

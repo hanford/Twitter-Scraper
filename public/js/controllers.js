@@ -3,45 +3,56 @@
 angular.module('myApp.controllers', ['myApp.services'])
 
 .controller('AppCtrl', function($scope, $http) {
-  console.log('loaded')
 
 }).controller('MyCtrl1', function($scope, $http, apiService) {
-  $scope.users = [];
-
   $scope.search = function(query) {
+    $scope.lists = [];
     $scope.loading = true;
     $scope.names = query.split(/\r\n|\r|\n/g)
-    console.log($scope.names.length > 1)
     if ($scope.names.length > 1) {
       setTimeout(function() {
         for (var i = 0; i < $scope.names.length; i++) {
-          console.log($scope.names[i])
           apiService.search($scope.names[i]).then(function(response) {
-            $scope.users = response.data.users;
+            $scope.lists.push(response.data.users)
+            console.log($scope.lists)
           })
         }
+        $scope.loading = false;
       }, 1000)
-      $scope.loading = false;
     } else {
       apiService.search(query).then(function(response) {
-        console.log(response)
+        $scope.lists.push(response.data.users);
         $scope.loading = false;
-        $scope.users = response.data.users;
       })
     }
+  }
+
+  $scope.follow = function(user) {
+    apiService.follow(user.id).then(function(response){
+      console.log('followed' + user)
+    })
   }
   $scope.hashtag = function(query) {
     console.log(encodeURI(query));
     $scope.loading = true;
-    $http.get('/api/search/tweets?query=' + encodeURI(query)).then(function(response) {
+    // Encoding for hastags and literal searches
+    var tweet2search = encodeURI(query);
+    apiService.tweets(tweet2search).then(function(response) {
       $scope.loading = false;
-      if (response.data && response.data.tweets && response.data.tweets.statuses) {
+      // Making sure the return isn't an empty array
+      if (response.data.tweets.statuses.length < 1) {
+        alert('No Tweets!')
+      }
+      // Making sure the return exsists
+      if (response.data.tweets && response.data.tweets.statuses) {
         $scope.tweets = response.data.tweets.statuses;
       }
     })
   }
   $scope.clear = function() {
     $scope.tweets = [];
-    $scope.users = [];
+    $scope.names = [];
+    $scope.lists = [];
+    $scope.query = '';
   }
 })

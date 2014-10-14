@@ -70,3 +70,11 @@
   min-height: 80px;
   display: inline-block;
 }
+
+.overflow-control {
+  max-height: 500px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  border: 1px solid lightgrey;
+  padding: 0 !important;
+}
