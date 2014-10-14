@@ -2,12 +2,6 @@ var express = require('express');
 var Twit = require('twit');
 var router = express.Router();
 
-// router.get('/api/tweets', function(req, res) {
-//   return res.send({
-//     tweets: [1, 2, 3, 4, 5]
-//   })
-// });
-
 var T = new Twit({
   consumer_key: 'V5YYbhnFGWGwxSzfrNNhTwQnL',
   consumer_secret: 'D3WLey4aadWOfR7aOD1i049fVl0hT3VX3jXLlZZrDbWY37OX68',
@@ -19,7 +13,7 @@ var T = new Twit({
 router.use(function timeLog(req, res, next) {
   console.log('Time: ', Date.now());
   next();
-});
+})
 router.get('/users', function(req, res) {
   T.get('users/search', {
     q: req.param('query')

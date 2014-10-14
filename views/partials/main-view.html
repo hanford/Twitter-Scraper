@@ -14,27 +14,29 @@
   <br />
   <div class="row">
     <div class="col-xs-12">
-      <button class="btn btn-primary" ng-click="hashtag(query)">Search by Tweets</button>
+      <button class="btn btn-primary" ng-click="tweet(query)">Search by Tweets</button>
       <button class="btn btn-success" ng-click="search(query)">Search Users</button>
       <button class="btn btn-danger" ng-click="clear()">Clear</button>
     </div>
   </div>
   <br />
   <div class="row">
-    <div class="overflow-control" ng-show="tweets">
-      <div class="list-group">
-        <a href="#" class="list-group-item" ng-repeat="tweet in tweets">
-          <div style="display:tabel-cell;">
-            <h4 class="list-group-item-heading">@{{tweet.user.name}}</h4>
-            <p class="list-group-item-text">{{tweet.text}}</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div ng-repeat="list in lists">
+    <div ng-repeat="tweetList in tweetLists">
       <div class="overflow-control">
         <div class="list-group">
-          <a ng-click="follow(user)" class="list-group-item" ng-repeat="user in list">
+          <a href="#" class="list-group-item" ng-repeat="tweet in tweetList">
+            <div style="display:tabel-cell;">
+              <h4 class="list-group-item-heading">@{{tweet.user.name}}</h4>
+              <p class="list-group-item-text">{{tweet.text}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="nameList in nameLists">
+      <div class="overflow-control">
+        <div class="list-group">
+          <a ng-click="follow(user)" class="list-group-item" ng-repeat="user in nameList">
             <img ng-src="{{user.profile_image_url}}" class="img-squar imgli">
             <div class="has-thumbnail">
               <h4 class="list-group-item-heading">@{{user.screen_name}}</h4>

@@ -12,8 +12,9 @@ router.get('/birds', function(req, res) {
   res.send('Birds home page');
 })
 
-router.get('/test', function(req, res) {
-  console.log('First Request')
+router.get('/follow', function(req, res) {
+  console.log(req.param('id'))
+  // https://api.twitter.com/1.1/friendships/create.json?user_id=1401881&follow=true
 })
 
 router.use('/search', require('./search'));
