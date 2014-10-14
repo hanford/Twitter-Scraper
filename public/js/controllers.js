@@ -13,7 +13,7 @@ angular.module('myApp.controllers', ['myApp.services'])
     var names = query.split(/\r\n|\r|\n/g)
     if (names.length > 1) {
       for (var i = 0; i < names.length; i++) {
-        apiService.search(encodeURI(names[i])).then(function(response) {
+        apiService.search(encodeURIComponent(names[i])).then(function(response) {
           $scope.nameLists.push(response.data.users)
           console.log($scope.nameLists)
         })
@@ -40,7 +40,7 @@ angular.module('myApp.controllers', ['myApp.services'])
     var tweetArray = query.split(/\r\n|\r|\n/g)
     if (tweetArray.length > 1) {
       for (var i = 0; i < tweetArray.length; i++) {
-        apiService.tweets(encodeURI(tweetArray[i])).then(function(response) {
+        apiService.tweets(encodeURIComponent(tweetArray[i])).then(function(response) {
           $scope.tweetLists.push(response.data.tweets.statuses)
           console.log($scope.tweetLists)
           $scope.loading = false;
@@ -49,7 +49,7 @@ angular.module('myApp.controllers', ['myApp.services'])
       }
     } else {
       // Encoding for hastags and literal searches
-      apiService.tweets(encodeURI(query)).then(function(response) {
+      apiService.tweets(encodeURIComponent(query)).then(function(response) {
         $scope.loading = false;
         // Making sure the return exsists
         if (response.data.tweets && response.data.tweets.statuses) {
