@@ -73,8 +73,12 @@
 
 .overflow-control {
   max-height: 500px;
-  margin-bottom: 20px;
+  margin: 5px 1.6%;
+  width: 30%;
+  float: left;
+  display: inline-block;
   overflow: scroll;
   border: 1px solid lightgrey;
   padding: 0 !important;
+  border-radius: 4px;
 }

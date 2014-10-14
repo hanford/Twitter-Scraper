@@ -7,6 +7,9 @@ angular.module('myApp.services', [])
     search: function(query) {
       return $http.get('/api/search/users?query=' + query)
     },
+    test: function() {
+      return $http.get('/api/test/')
+    },
     follow: function(id) {
       // ?id=' + id)
       return $http.get('/api/follow/')

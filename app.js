@@ -58,10 +58,7 @@ app.use('/api', routes.api);
 // serve index and view partials
 app.get('/', routes.index);
 app.get('/view1', routes.index);
-app.get('/view2', routes.index);
-// app.get('/jack', function(){
-//   console.log('bad')
-// });
+
 app.get('/partials/:name', routes.partials);
 
 /**

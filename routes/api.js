@@ -12,6 +12,10 @@ router.get('/birds', function(req, res) {
   res.send('Birds home page');
 })
 
+router.get('/test', function(req, res) {
+  console.log('First Request')
+})
+
 router.use('/search', require('./search'));
 
 module.exports = router;

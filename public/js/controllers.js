@@ -5,6 +5,8 @@ angular.module('myApp.controllers', ['myApp.services'])
 .controller('AppCtrl', function($scope, $http) {
 
 }).controller('MyCtrl1', function($scope, $http, apiService) {
+  apiService.test();
+
   $scope.search = function(query) {
     $scope.lists = [];
     $scope.loading = true;
@@ -28,9 +30,10 @@ angular.module('myApp.controllers', ['myApp.services'])
   }
 
   $scope.follow = function(user) {
-    apiService.follow(user.id).then(function(response){
-      console.log('followed' + user)
-    })
+    console.log($index)
+    // apiService.follow(user.id).then(function(response){
+    //   console.log('followed' + user)
+    // })
   }
   $scope.hashtag = function(query) {
     console.log(encodeURI(query));
@@ -39,13 +42,11 @@ angular.module('myApp.controllers', ['myApp.services'])
     var tweet2search = encodeURI(query);
     apiService.tweets(tweet2search).then(function(response) {
       $scope.loading = false;
-      // Making sure the return isn't an empty array
-      if (response.data.tweets.statuses.length < 1) {
-        alert('No Tweets!')
-      }
       // Making sure the return exsists
       if (response.data.tweets && response.data.tweets.statuses) {
         $scope.tweets = response.data.tweets.statuses;
+      } else {
+        alert('No Tweets!')
       }
     })
   }
