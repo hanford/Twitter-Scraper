@@ -10,9 +10,9 @@ angular.module('myApp', [
 ])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
-    .state('view1', {
-      url: "/view1",
-      controller: 'MyCtrl1',
+    .state('main', {
+      url: "/",
+      controller: 'AppCtrl',
       templateUrl: "partials/main-view.html"
     })
 

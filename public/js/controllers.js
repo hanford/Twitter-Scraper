@@ -2,9 +2,8 @@
 
 angular.module('myApp.controllers', ['myApp.services'])
 
-.controller('AppCtrl', function($scope, $http) {
+.controller('AppCtrl', function($scope, $http, apiService, $timeout) {
 
-}).controller('MyCtrl1', function($scope, $http, apiService, $timeout) {
   $scope.search = function(query) {
     $scope.nameLists = [];
     $scope.loading = true;
@@ -27,6 +26,7 @@ angular.module('myApp.controllers', ['myApp.services'])
   }
 
   $scope.follow = function(user) {
+    // Not called for now
     apiService.follow(user.id).then(function(response) {
       console.log('followed' + user)
     })
