@@ -1,1 +1,1 @@
-Small node app to scrape some twitters data and write it to a CSV
+Small node app to scrape from list of names or tweets

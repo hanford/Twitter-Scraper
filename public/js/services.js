@@ -1,17 +1,18 @@
 'use strict';
+var twiturl = '/api/twit/';
 
 angular.module('myApp.services', [])
-
 .service('apiService', ['$http', function($http) {
   return {
     search: function(query) {
-      return $http.get('/api/search/users?query=' + query)
+      return $http.get(twiturl + 'users?query=' + query)
     },
     follow: function(id) {
-      return $http.get('/api/follow?id=' + id)
+      console.log(id)
+      return $http.post(twiturl + 'follow?id=' + id)
     },
     tweets: function(query) {
-      return $http.get('/api/search/tweets?query=' + query)
+      return $http.get(twiturl + 'tweets?query=' + query)
     }
   }
 }])

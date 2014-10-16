@@ -10,6 +10,7 @@
     "jade": "~0.31.2",
     "method-override": "^1.0.0",
     "morgan": "^1.0.0",
+    "superagent": "^0.20.0",
     "twit": "^1.1.18"
   }
 }

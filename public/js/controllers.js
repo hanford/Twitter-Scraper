@@ -5,7 +5,6 @@ angular.module('myApp.controllers', ['myApp.services'])
 .controller('AppCtrl', function($scope, $http) {
 
 }).controller('MyCtrl1', function($scope, $http, apiService, $timeout) {
-
   $scope.search = function(query) {
     $scope.nameLists = [];
     $scope.loading = true;
@@ -21,7 +20,7 @@ angular.module('myApp.controllers', ['myApp.services'])
       $scope.loading = false;
     } else {
       apiService.search(query).then(function(response) {
-        $scope.lists.push(response.data.users);
+        $scope.nameLists.push(response.data.users);
         $scope.loading = false;
       })
     }
@@ -48,12 +47,11 @@ angular.module('myApp.controllers', ['myApp.services'])
         })
       }
     } else {
-      // Encoding for hastags and literal searches
       apiService.tweets(encodeURIComponent(query)).then(function(response) {
         $scope.loading = false;
-        // Making sure the return exsists
         if (response.data.tweets && response.data.tweets.statuses) {
-          $scope.tweets = response.data.tweets.statuses;
+          $scope.tweetLists.push(response.data.tweets.statuses)
+          console.log(tweetLists)
         } else {
           alert('No Tweets!')
         }
