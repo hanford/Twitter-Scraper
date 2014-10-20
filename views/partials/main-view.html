@@ -24,9 +24,9 @@
     <div ng-repeat="tweetList in tweetLists">
       <div class="overflow-control">
         <div class="list-group">
-          <a href="#" class="list-group-item" ng-repeat="tweet in tweetList">
+          <a target="_blank" href="http://twitter.com/{{tweet.user.screen_name}}/status/{{tweet.id_str}}" class="list-group-item" ng-repeat="tweet in tweetList">
             <div style="display:tabel-cell;">
-              <h4 class="list-group-item-heading">@{{tweet.user.name}}</h4>
+              <h4 class="list-group-item-heading">@{{tweet.user.screen_name}} <span class="realname">{{tweet.user.name}}</h4>
               <p class="list-group-item-text">{{tweet.text}}</p>
             </div>
           </a>

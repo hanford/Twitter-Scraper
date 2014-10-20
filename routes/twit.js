@@ -27,9 +27,6 @@ app.get('/users', function(req, res) {
     });
   });
 })
-app.get('/auth', function(req, res) {
-
-})
 app.get('/tweets', function(req, res) {
   console.log(req)
   T.get('search/tweets', {
