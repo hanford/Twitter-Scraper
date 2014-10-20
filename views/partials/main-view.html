@@ -10,13 +10,13 @@
   </ol>
 </div>
 <div class="row">
-  <textarea class="form-control" rows="10" ng-model="query"></textarea>
+    <textarea class="form-control" rows="10" ng-model="query"></textarea>
   <br />
   <div class="row">
     <div class="col-xs-12">
-      <button class="btn btn-primary" ng-click="tweet(query)">Search by Tweets</button>
-      <button class="btn btn-info" ng-click="search(query)">Search Users</button>
-      <button class="btn btn-danger" ng-click="clear()">Clear</button>
+      <button class="btn btn-primary" ng-click="tweet(query)" ng-disabled="!query">Search by Tweets</button>
+      <button class="btn btn-info" ng-click="search(query)" ng-disabled="!query">Search Users</button>
+      <button class="btn btn-danger" ng-if="query" ng-click="clear()">Clear</button>
     </div>
   </div>
   <br />
